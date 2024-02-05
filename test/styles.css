@@ -1,0 +1,26 @@
+* {
+    color: purple;
+  }
+
+div {
+    color: white;
+    background-color: black;
+}
+
+p {
+    color: red;
+}
+
+.alert-text {
+    color: red;
+    background-color: brown;
+}
+
+.subsection.header,
+.subsection.preview {
+    color: red;
+}
+
+.subsection#preview {
+    color: blue;
+}
