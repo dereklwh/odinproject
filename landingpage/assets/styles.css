@@ -69,3 +69,37 @@ button {
     padding: 10px;
 }
 
+.title {
+    text-align: center;
+    font-weight: bolder;
+    font-size: 36px;
+    color: #28536B;
+    padding: 40px 0px;
+}
+
+.container2 {
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    color: #1F2937;
+    text-align: center;
+    gap: 50px;
+    margin-bottom: 150px;
+}
+
+.item {
+    max-width: 200px;
+}
+
+.item img {
+    object-fit: cover;
+    max-width: 200px;
+    height: 200px;
+    border-radius: 10%;
+    border: 3px solid #CF5C36
+}
+
+.container3 {
+    background-color: #E5E7EB;
+}
+
