@@ -30,6 +30,11 @@ function fillDisplay(width, height) {
                 }
             });
 
+            grid.addEventListener('mousedown', (e) => {
+                e.preventDefault();
+                grid.style.backgroundColor = 'black';
+            });
+
             display.appendChild(grid);
         }
     }
