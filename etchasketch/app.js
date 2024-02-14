@@ -1,10 +1,14 @@
 const display = document.querySelector('.container');
-const tempButton = document.querySelector('button');
+const createButton = document.querySelector('button');
+const numSquares = document.querySelector('#n');
 
 //takes 2 integer params
 function fillDisplay(width, height) {
 
     let isMouseDown = false;
+    let divSize = 800 / width;
+    let divString = divSize.toString().concat('px');
+
 
     document.addEventListener('mousedown', (e) => {
         e.preventDefault();
@@ -18,11 +22,12 @@ function fillDisplay(width, height) {
     for (let i=0; i<width; i++) {
         for (let j=0; j<height; j++) {
             const grid = document.createElement('div');
-            grid.style.outline = '1px solid black';
-            grid.style.width = '50px';
-            grid.style.height = '50px';
+            grid.style.outline = '0.1px solid grey';
+            grid.style.width = divString;
+            grid.style.height = divString;
             grid.style.display = 'inline-block';
             grid.style.margin = '0px';
+            grid.style.display = 'flex';
 
             grid.addEventListener('mouseenter', () => {
                 if (isMouseDown) {
@@ -41,9 +46,15 @@ function fillDisplay(width, height) {
 }
 
 
-tempButton.addEventListener('click', () => {
-    display.style.width = '800px';
-    fillDisplay(16,16);
+createButton.addEventListener('click', () => {
+
+    let userInput = Number(numSquares.value);
+    if (userInput) {
+        fillDisplay(userInput,userInput);
+        console.log(userInput);
+    } else {
+        console.log('not a nubmer');
+    }
 });
 
 

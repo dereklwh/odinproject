@@ -1,3 +1,45 @@
 * {
+    font-family: monospace;
+    box-sizing: border-box;
     margin: 0px;
 }
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 120vh;
+    background-image: linear-gradient(to right, rgba(179, 180, 176, 0.377), rgba(154, 168, 156, 0.712));
+
+}
+
+.heading h1,
+.heading h3,
+.heading input,
+.heading button {
+    margin: 10px;
+}
+
+button {
+    border-radius: 10px;
+    padding: 5px;
+    border: none;
+}
+
+button:hover {
+    background-color: lightgreen;
+    scale: 102%;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 800px;
+    height: 800px;
+    justify-content: center;
+    outline: 2px solid black;
+    flex-shrink: 0;
+    background-color: white;
+}
+
