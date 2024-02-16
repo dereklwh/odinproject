@@ -9,41 +9,74 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
+    background-color: rgba(255, 228, 196, 0.349);
 }
 
 .main-container {
     display: flex;
     flex-wrap: wrap;
     background-color: black;
-    height: 400px;
-    width: 300px;
-    margin: 20px;
-
+    height: 550px;
+    width: 350px;
 }
 
 button {
-    padding: 5px 20px;
-    border-radius: 30px;
+    font-size: 25px;
+    border-radius: 50px;
     border: none;
     margin: 5px;
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
 }
 
-.numbers, .operators {
-    outline: 1px solid red;
-    
+
+.buttons {
+    display: flex;
+    /* justify-content: center;  */
+}
+
+.three-quarters-container {
+    width: 75%;
+    text-align: right;
+}
+
+.operators {
+    width: 25%;
+    text-align: center;
+}
+
+.top-row button {
+    text-align: center;
+    background-color: rgb(196, 189, 189)
 }
 
 .numbers button {
     color: white;
     /* background-color: grey; */
-    background-image: linear-gradient(grey, rgb(58, 54, 54));
+    background-color: grey
 }
+
 
 .operators button{
     color: white;
     background-color: orange;
+}
+
+.top-row button:active {
+    background-color: rgb(224, 217, 217)
+}
+
+.numbers button:active {
+    background-color: rgb(177, 175, 175);
+}
+
+.operators button:active {
+    background-color: rgb(253, 194, 84);
+}
+
+/* id 0 */
+#\30 {
+    width: 150px;
 }
 
 .display {
@@ -57,8 +90,5 @@ button {
     /* outline: 2px solid red; */
 }
 
-.buttons {
-    outline: 2px solid red;
-    display: flex;
-    justify-content: center;
-}
+
+
