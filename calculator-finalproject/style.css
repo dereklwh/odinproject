@@ -12,11 +12,53 @@ body {
     background-color: rgba(255, 228, 196, 0.349);
 }
 
+.top-of-screen {
+    color: white;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 50px; 
+    /* outline: 2px solid white; */
+    margin-bottom: 125px;
+}
+
+.iphone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    outline: 3px solid rgb(227, 233, 228);
+    background-color: rgb(0, 0, 0);
+    border-radius: 40px;
+    width: 375px;
+    height: 700px;
+    /* padding-top: 150px; */
+}
+
+.camera {
+    display: flex;
+    width: 100px;
+    height: 20px;
+    background-color: rgba(110, 101, 101, 0.205);
+    border-radius: 20px;
+    justify-content: right;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.camera-camera {
+    height: 10px;
+    width: 10px;
+    border-radius: 10px;
+    background-color: rgb(0, 0, 0);
+    margin-right: 5px;
+}
+
 .main-container {
     display: flex;
     flex-wrap: wrap;
     background-color: black;
-    height: 550px;
+    height: 500px;
     width: 350px;
 }
 
@@ -85,7 +127,7 @@ button {
     justify-content: right;
     align-items:last baseline;
     color: white;
-    font-size: 40px;
+    font-size: 55px;
     margin: 10px;
     /* outline: 2px solid red; */
 }
