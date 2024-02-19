@@ -26,39 +26,72 @@ buttons.forEach(button => {
 const handleButtonClick = (buttonId) => {
     if (buttonId in numArray) {
         currentInput += buttonId;
-        display.textContent = currentInput;
-    } else if (buttonId in opArray) {
+        console.log(currentInput);
+        // display.textContent = currentInput;
+        updateDisplay();
+    } else if (['add', 'sub', 'mul', 'div'].includes(buttonId)) {
         prevInput = currentInput;
         currentInput = '';
         operation = buttonId;
-        console.log('no');
-        display.textContent = 'no';
+        if (prevInput !== '') {
+            operate();
+        }
+    } else if (buttonId === 'eql') {
+        operate();
+    }
+    else if (buttonId === 'clear') {
+        clear();
+        updateDisplay();
     }
 }
 
-// const operate = (a,b) => {
-//     let num1 = ''
-//     let operation = '';
-//     let operator = false;
-//     let exponent = 0;
+const operate = () => {
+    let result;
+    if (prevInput == '') {
+        display.textContent = 'try again'
+    }
 
-//     buttons.forEach(button => {
-//         button.addEventListener('click', () => {
-//             if (button.id in numArray) {
-//                     num1 += button.id;
-//                     console.log(num1);
-//                     display.textContent = num1;
-//             } else if (button.id in opArray) {
-//                 //STORE OPERATION FOR 
-//                 operation = button.id;
-//                 if (operation == 'mul')
-                
-//             }
-//         });
-//     });
-// }
+    const prev = parseFloat(prevInput);
+    const cur = parseFloat(currentInput);
 
-// operate(1,2);
+    switch (operation) {
+        case 'add':
+            result = add(prev, cur);
+            break;
+        case 'sub':
+            result = sub(prev, cur);
+            break;
+        case 'mul':
+            result = multiply(prev, cur);
+            break;
+        case 'div':
+            result = divide(prev, cur);
+            break;
+        default:
+            return;
+    }
+
+    currentInput = result.toString();
+    operation = null;
+    previousInput = '';
+}
+
+const clear = () => {
+    currentInput = '';
+    prevInput = '';
+    operation = null;
+}
+
+function updateDisplay() {
+    if (currentInput === '') {
+        display.textContent = "0";
+    } else {
+        display.textContent = currentInput;
+    }
+}
+
+// updateDisplay();
+
 
 const updateTime = () => {
     const now = new Date();
