@@ -30,14 +30,16 @@ const handleButtonClick = (buttonId) => {
         // display.textContent = currentInput;
         updateDisplay();
     } else if (['add', 'sub', 'mul', 'div'].includes(buttonId)) {
-        prevInput = currentInput;
-        currentInput = '';
-        operation = buttonId;
         if (prevInput !== '') {
             operate();
         }
+        prevInput = currentInput;
+        currentInput = '';
+        operation = buttonId;
+        updateDisplay();
     } else if (buttonId === 'eql') {
         operate();
+        updateDisplay();
     }
     else if (buttonId === 'clear') {
         clear();
