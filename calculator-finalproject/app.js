@@ -27,7 +27,6 @@ const handleButtonClick = (buttonId) => {
     if (buttonId in numArray) {
         currentInput += buttonId;
         console.log(currentInput);
-        // display.textContent = currentInput;
         updateDisplay();
     } else if (['add', 'sub', 'mul', 'div'].includes(buttonId)) {
         if (prevInput !== '') {
@@ -40,10 +39,14 @@ const handleButtonClick = (buttonId) => {
     } else if (buttonId === 'eql') {
         operate();
         updateDisplay();
-    }
-    else if (buttonId === 'clear') {
+    } else if (buttonId === 'clear') {
         clear();
         updateDisplay();
+    } else if (buttonId === 'sign') {
+        changeSign();
+        updateDisplay();
+    } else if (buttonId === 'percent') {
+
     }
 }
 
@@ -55,6 +58,8 @@ const operate = () => {
 
     const prev = parseFloat(prevInput);
     const cur = parseFloat(currentInput);
+
+    // if (isNaN(prev) || isNaN(current)) return;
 
     switch (operation) {
         case 'add':
@@ -73,7 +78,7 @@ const operate = () => {
             return;
     }
 
-    currentInput = result.toString();
+    currentInput = Number.isInteger(result) ? result.toString() : result.toFixed(7);
     operation = null;
     previousInput = '';
 }
@@ -84,13 +89,18 @@ const clear = () => {
     operation = null;
 }
 
-function updateDisplay() {
+const updateDisplay = () => {
     if (currentInput === '') {
-        display.textContent = "0";
+        display.textContent = prevInput;
     } else {
         display.textContent = currentInput;
     }
 }
+
+const changeSign = () => {
+    currentInput = currentInput.startsWith('-') ? currentInput.substring(1) : ('-' + currentInput);
+}
+
 
 // updateDisplay();
 
