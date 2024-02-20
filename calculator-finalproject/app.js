@@ -25,8 +25,11 @@ buttons.forEach(button => {
 
 const handleButtonClick = (buttonId) => {
     if (buttonId in numArray) {
-        currentInput += buttonId;
-        console.log(currentInput);
+        if (currentInput === '0') {
+            currentInput = buttonId;
+        } else {
+            currentInput += buttonId;
+        }
         updateDisplay();
     } else if (['add', 'sub', 'mul', 'div'].includes(buttonId)) {
         if (prevInput !== '') {
@@ -78,13 +81,13 @@ const operate = () => {
             return;
     }
 
-    currentInput = Number.isInteger(result) ? result.toString() : result.toFixed(7);
+    currentInput = Number.isInteger(result) ? result.toString() : Number(result.toFixed(7)).toString();
     operation = null;
     previousInput = '';
 }
 
 const clear = () => {
-    currentInput = '';
+    currentInput = '0';
     prevInput = '';
     operation = null;
 }
