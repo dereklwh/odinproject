@@ -49,7 +49,13 @@ const handleButtonClick = (buttonId) => {
         changeSign();
         updateDisplay();
     } else if (buttonId === 'percent') {
-
+        currentInput = Number((Number(currentInput)/100).toFixed(7)).toString();
+        updateDisplay();
+    } else if (buttonId === 'decimal') {
+        if (!currentInput.includes('.')) {
+            currentInput += '.';
+        }
+        updateDisplay();
     }
 }
 
@@ -61,8 +67,6 @@ const operate = () => {
 
     const prev = parseFloat(prevInput);
     const cur = parseFloat(currentInput);
-
-    // if (isNaN(prev) || isNaN(current)) return;
 
     switch (operation) {
         case 'add':
